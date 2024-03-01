@@ -1,1 +1,1 @@
-# Comparing_Arabic_Sentence_Transformers
+# Comparing Arabic Sentence Transformers
