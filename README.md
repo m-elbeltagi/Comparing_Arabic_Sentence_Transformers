@@ -5,6 +5,9 @@ There is a scarcity of evidence and benchmarks indicating the performance of sen
 The dataset used consists of 25,000 labeled examples, with arabic poems (representing the text to be embedded), and labels (indicating the historical era the poem comes from). This dataset was obtained from [Kaggle](https://www.kaggle.com/competitions/arabic-poem-classification/overview). The data set was split into a 80%-20% for tain-eval. The 5 historical eras are mapped to numerical values (0,1,2,3,4) before training. 
 As some of the poems exceeded the context length of the transformers used, 512 tokens ~350 words, the longer poems were _chunked_ into smaller strings, each with the same label as the original poem.
 
+A class separability graph prouced by [UMAP](https://umap-learn.readthedocs.io/en/latest/) for the all the training text embeddings, after passing it through the trasnformer once (this already indicates that finetuning will likely produce much better results, as they are do not look very separable, at least by eye).
+![UMAP](chunking_5_epochs.png)
+
 ## Training Procedures
 1) The first training procedure used a transformer model to produce the embeddings or _hidden states_, this involves passing the dataset through the transformer once, then using the produced hidden states to train a NN classifier (the transformer weights are frozen and not updated). These hidden states encode the meaning of the sentence accounting for context. The NN classifier is fully connected with 2 hidden layers, a 768 dim input layer (the dim of the embeddings output by the transformer), and a 5 dim output layer (the log odds of each label, which are later turned into probabilities via softmax).
 
