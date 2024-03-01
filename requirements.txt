@@ -1,0 +1,11 @@
+datasets==2.11.0
+matplotlib==3.5.2
+numpy==1.21.6
+pandas==2.2.1
+pandas_stubs==1.2.0.62
+scikit_learn==1.4.1.post1
+seaborn==0.13.2
+torch==1.12.1
+transformers==4.24.0
+umap==0.1.1
+umap_learn==0.5.3
