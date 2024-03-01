@@ -14,7 +14,7 @@ A class separability graph prouced by [UMAP](https://umap-learn.readthedocs.io/e
 ## Training Procedures
 All training was performed locally on a single NVIDIA RTX 3060Ti.  
 
-1) The first training procedure used a transformer model to produce the embeddings or _hidden states_, this involves passing the dataset through the transformer once, then using the produced hidden states to train a NN classifier (the transformer weights are frozen and not updated). These hidden states encode the meaning of the sentence accounting for context. The NN classifier is fully connected with 2 hidden layers, a 768 dim input layer (the dim of the embeddings output by the transformer), and a 5 dim output layer (the log odds of each label, which are later turned into probabilities via softmax).
+1) The first training procedure used a transformer model to produce the embeddings or _hidden states_, this involves passing the dataset through the transformer once, then using the produced hidden states as features to train a NN classifier (the transformer weights are frozen and not updated). These hidden states encode the meaning of the sentence accounting for context. The NN classifier is fully connected with 2 hidden layers, a 768 dim input layer (the dim of the embeddings output by the transformer), and a 5 dim output layer (the log odds of each label, which are later turned into probabilities via softmax).
 
 2) The second training procedure (facilitated by the Hugging Face Trainer), trained both transformer and classifier (the gradients flow all the way back), to optimize the produced embeddings specifically for this classification task.
 
