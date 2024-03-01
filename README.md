@@ -10,4 +10,7 @@ As some of the poems exceeded the context length of the transformers used, 512 t
 
 2) The second training procedure (facilitated by the Hugging Face Trainer), trained both transformer and classifier (the gradients flow all the way back), to optimize the produced embeddings specifically for this classification task.
 
-This is the 
+Below is the best training run, it used a schduler with a linear learning rate, and a warmup peroid (indidentally I also tested without a scheduler and the differences were minor, ~1%).
+![best training run](chunking_5_epochs.png)
+
+
