@@ -7,7 +7,7 @@ The 5 historical eras (classes) are mapped to numerical values (0,1,2,3,4) befor
 As some of the poems exceeded the context length of the transformers used, 512 tokens ~350 words, the longer poems were _chunked_ into smaller strings, each with the same label as the original poem.  
 
 
-A class separability graph prouced by [UMAP](https://umap-learn.readthedocs.io/en/latest/) for the all the training text embeddings, after passing it through the trasnformer once (this already indicates that finetuning will likely produce much better results, as they are do not look very separable, at least by eye).
+A class separability graph prouced by [UMAP](https://umap-learn.readthedocs.io/en/latest/) for all the training text embeddings, after passing it through the trasnformer once (this already indicates that finetuning will likely produce much better results, as they are do not look very separable, at least by eye).
 ![UMAP](umap_high_res.png)  
 
 
