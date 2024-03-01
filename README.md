@@ -27,7 +27,7 @@ Here is the model performance in order.
 
 Note that 50% acc is not random performance (as this is not binary classfication).  
 One mildly surprising thing, was that chunking vs no chunking produced a barely visibile imprvovement (<~1%) despite adding an extra ~1000 training examples (and as mentioned earlier, learning rate scheduling also produced a barely visible effect).  
-What was more surprising was the worse perfomance of _multilingual-e5-small_ model, as it has a relatively high score (at the time of writing this) on the [MTEB HF Leaderboard](https://huggingface.co/spaces/mteb/leaderboard). It is true this is score is weighted heavier for English text, but still multilingual-e5-small has a relatively high score on text classification outperforming signtificantly larger models (models multiple times its size), so this came as a surprise somewhat. 
+What was more surprising was the worse perfomance of _multilingual-e5-small_ model, as it has a relatively high score (at the time of writing) on the [MTEB HF Leaderboard](https://huggingface.co/spaces/mteb/leaderboard). It is true this is score is weighted heavier for English text, but still multilingual-e5-small has a relatively high score on text classification outperforming signtificantly larger models (models multiple times its size), so this came as a surprise somewhat. 
 
 # Conclusion
 In conlcusion, the best sentence embedding transformer for Arabic text classification (given limited compute resources), is to still finetune old faithful, _distilbert-base-multilingual-cased_!
