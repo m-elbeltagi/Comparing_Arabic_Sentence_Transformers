@@ -6,8 +6,6 @@ import torch.nn.functional as F
 import torch.nn as nn
 from torch.utils.data import random_split
 import torch.optim.lr_scheduler as lr_scheduler
-from transformers import pipeline
-from datasets import load_dataset
 from datasets import Dataset
 from transformers import AutoTokenizer
 from transformers import AutoModel
@@ -15,7 +13,6 @@ import matplotlib.pyplot as plt
 from umap import UMAP
 from sklearn.preprocessing import MinMaxScaler
 import datetime
-import sys
 import seaborn as sns
 
 
@@ -216,7 +213,7 @@ def dimReduction(train_dataset_hidden):
     plt.xlabel("Reduced dim. 1")
     plt.ylabel("Reduced dim. 2")
 
-    # plt.savefig('./umap_high_res.png', bbox_inches='tight', dpi=1000)
+    # plt.savefig('./umap_high_res.png', bbox_inches='tight', dpi=300)
 
 
 # remove from GPU memory
@@ -315,34 +312,6 @@ def make_train_step(model, loss_func, optimizer):
         return loss.item()
 
     return train_step
-
-
-def evaluate(model, loss_func):
-    model.eval()
-    total_loss = 0.0
-    correct = 0
-    total = 0
-    with torch.no_grad():
-        for x_val, y_val in val_loader:
-            x_val = x_val.to(device)
-
-            y_val = y_val.type(torch.LongTensor)
-            y_val = y_val.to(device)
-
-            y_hat = model(x_val)
-            y_hat = y_hat.squeeze()
-            val_loss += loss_func(y_hat, y_val)
-
-            # apply softmax to log odds model output
-            softmax_outputs = torch.softmax(y_hat, dim=1)
-
-            # collapse probabilities to 1 predicted label
-            _, predicted_labels = torch.max(softmax_outputs, 1)
-
-            correct_predictions = predicted_labels == y_val
-            correct += correct_predictions.sum().item()
-
-    return total_loss / len(loader), 100 * correct / total
 
 
 model = Classifier()
