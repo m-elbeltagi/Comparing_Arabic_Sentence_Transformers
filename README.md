@@ -42,7 +42,8 @@ In conlcusion, the best sentence embedding transformer for Arabic text classific
 
 ## How to Cite
 If you use this repository in your research, please cite it as follows:
-```@misc{Comparing_Arabic_Sentence_Transformers,
+```bibtex
+@misc{Comparing_Arabic_Sentence_Transformers,
   author       = {Mohamed Elbeltagi},
   title        = {Comparing Arabic Sentence Transformers},
   year         = {2024},
