@@ -48,4 +48,4 @@ If you use this repository in your research, please cite it as follows:
   year         = {2024},
   publisher    = {GitHub},
   url = {https://github.com/m-elbeltagi/Comparing_Arabic_Sentence_Transformers},
-}```
+}
